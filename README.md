@@ -2,14 +2,8 @@
 
 Um projeto de **Pokédex** desenvolvido em **React** e **TypeScript**, consumindo a API pública [PokéAPI](https://pokeapi.co/) para buscar informações de Pokémon. O projeto é responsivo, possui tema claro/escuro e foi desenvolvido como exemplo para portfólio.
 
----
-
-## **Demo**
-
-![Pokédex Demo](demo-screenshot.png)  
-> *Substitua pelo screenshot do seu projeto.*
-
----
+---Clique para vizualizar
+https://richard-moura.github.io/my-pokedex/ 
 
 ## **Funcionalidades**
 
