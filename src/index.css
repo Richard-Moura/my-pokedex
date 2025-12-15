@@ -1,0 +1,89 @@
+/* === VARIÁVEIS GLOBAIS E FONTES === */
+:root {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--text, #0f172a);
+  background-color: var(--bg, #f5f7fa);
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* conteúdo começa do topo, mas container centraliza horizontalmente */
+  background: var(--bg, #f5f7fa);
+  color: var(--text, #0f172a);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  font-weight: 500;
+  color: var(--accent, #ff4757);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent, #ff7a85);
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--card, #ffffff);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: var(--accent, #ff4757);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* === TEMAS CLARO / ESCURO === */
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --card: #0f172a;
+  --text: #e6eef8;
+  --accent: #ff7a85;
+  --muted: #9aa6b2;
+  --glass: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="light"] {
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #0f172a;
+  --accent: #ff4757;
+  --muted: #6b7280;
+  --glass: rgba(255, 255, 255, 0.6);
+}
+
+/* === RESPONSIVO GLOBAL === */
+@media (max-width: 640px) {
+  body {
+    padding: 0 8px;
+  }
+}

@@ -1,0 +1,337 @@
+/* === VARIÁVEIS DE CORES === */
+:root {
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #0f172a;
+  --accent: #ff4757;
+  --muted: #6b7280;
+  --glass: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --card: #0f172a;
+  --text: #e6eef8;
+  --accent: #ff7a85;
+  --muted: #9aa6b2;
+  --glass: rgba(255, 255, 255, 0.02);
+}
+
+/* === RESET E BASE === */
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  width: 100%;
+}
+
+/* === HEADER === */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+.nav.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background: var(--card);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 10px rgba(2,6,23,0.12);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.hamburger {
+  width: 36px;
+  height: 28px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  border-radius: 3px;
+  background-color: var(--text);
+  transition: all 0.25s;
+}
+
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* === MAIN CONTAINER === */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === SEARCH CARD === */
+.search-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(2,6,23,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.search-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-row input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.erro {
+  color: #ff5252;
+  font-weight: 700;
+}
+
+/* === RESULT GRID === */
+.result-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--glass), transparent);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.poke-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poke-img-wrap img {
+  width: 120px;
+  height: 120px;
+  image-rendering: pixelated;
+}
+
+.poke-body h2 {
+  margin-top: 8px;
+}
+
+.poke-body {
+  width: 100%;
+  text-align: center;
+}
+
+.type {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  margin-right: 6px;
+  font-size: 0.85rem;
+}
+
+.placeholder-card {
+  padding: 60px 20px;
+  border-radius: 12px;
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 200px;
+}
+
+.animate-in {
+  animation: popIn 0.4s ease-out;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(8px) scale(.98); }
+  to { opacity: 1; transform: none; }
+}
+
+/* === ABOUT / TIPS === */
+.about-card, .tips-card {
+  background: var(--card);
+  padding: 24px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 40px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+  text-align: center;
+}
+
+.about-card h2, .tips-card h2 {
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.about-card p, .tips-card ul {
+  color: var(--text);
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.tips-card ul {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.tips-card li {
+  margin-bottom: 6px;
+}
+
+/* === FOOTER === */
+.footer {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--muted);
+  width: 100%;
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 640px) {
+  .search-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-row input {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .nav {
+    display: none;
+  }
+  .nav.open {
+    display: flex;
+  }
+}
+
+[data-theme="dark"] .nav a {
+  color: var(--muted);
+}
+
+[data-theme="dark"] .hamburger span {
+  background: var(--muted);
+}
